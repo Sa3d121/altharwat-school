@@ -119,7 +119,13 @@ $('html').niceScroll({
 	cursorborder: "2px solid #13a4b6",
 	scrollspeed: "30"
 });
-
+$(window).on("load", function() {
+	$('.loading-overlay .lds-hourglass').fadeOut(2000, function() {
+		$('body').css('overflow', 'auto');
+		$(this).parent().fadeOut(2000, function() {
+			$(this).remove();
+		});
+	});
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {
 	scrollFunction()
@@ -161,13 +167,7 @@ span.onclick = function() {
 	modal1.style.display = "none";
 }
 	
-$(window).on("load", function() {
-	$('.loading-overlay .lds-hourglass').fadeOut(2000, function() {
-		$('body').css('overflow', 'auto');
-		$(this).parent().fadeOut(2000, function() {
-			$(this).remove();
-		});
-	});
+
 	//$('.loading-overlay').fadeOut(2000);
 });
 // Show Color Option Div When Click On The Gear
