@@ -50,11 +50,11 @@
 								<li>
 									<a href="index.html">تواصل معنا</a>
 								</li>
-								<li>
-									<a href="signin.html">التسجيل </a>
-								</li>
-								</li>
 								<li class="current">
+									<a href="#signin">التسجيل </a>
+								</li>
+								</li>
+								<li>
 									<a href="train&devolp.html">التطوير و التدريب</a>
 								</li>
 								<li>
@@ -72,12 +72,46 @@
 		</div>
 	</header>
 
-
 	<!-- section contact -->
-	<section class="section" id="contactus">
+	<section class="section" id="contactus" style="padding:50px">
 		<div class="container">
-		
-		</div>	
+		<div class="row">
+		  <div class="span12">
+					<div class="headline">
+						<h3 id="joinus"><span> التسجيل </span></h3>
+					</div>
+				</div>
+<form action="/action_page.php" style="max-width:500px;margin:auto">
+	
+	<div class="input-container">
+    <i class="fa fa-user icon" style="float:right; padding:5px 0px"></i> <span style="float:right">&nbsp;&nbsp; اسم المستخدم &nbsp;&nbsp;</span><span style="float:right"> :</span>
+    <input class="input-field" type="text" placeholder="اسم المستخدم" name="usrnm"style="padding:20px;" required>
+  
+  <div class="input-container">
+   <i class="fa fa-envelope icon" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; البريد الالكتروني&nbsp;&nbsp;</span><span style="float:right"> :</span>
+    <input class="input-field" type="text" placeholder="ادخل بريدك الالكتروني" name="email"style="padding:20px;" required>
+  </div>
+    <div class="input-container">
+   <i class="fas fa-phone" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; الهاتف المحمول&nbsp;&nbsp;</span><span style="float:right"> :</span>
+    <input class="input-field" type="text" placeholder="ادخل رفم هاتفك المحمول متبوع  برمز البلد" name="phone"style="padding:20px;" required>
+  </div>
+  
+  <div class="input-container">
+   <i class="fa fa-key icon" style="float:right;padding:5px 0px"></i> <span style="float:right;">&nbsp;&nbsp; كلمه المرور &nbsp;&nbsp;</span>  <span style="float:right">:</span>
+    <input class="input-field" type="password" placeholder="كلمه المرور" name="psw"style="padding:20px;" required >
+  </div>
+  
+     <div class="input-container">
+   <i class="fa fa-key icon" style="float:right;padding:5px 0px"></i> <span style="float:right;">&nbsp;&nbsp;  تاكيد كلمه المرور  &nbsp;&nbsp;</span>  <span style="float:right">:</span>
+    <input class="input-field" type="password" placeholder=" تاكيد كلمه المرور " name="psw"style="padding:20px;" required >
+  </div>
+  
+   <a href="signin.html" style="float:right;font-weight:bold;">  هل لديك حساب بالفعل ؟ قم بتسجيل الدخول</a>
+   <br>
+<br>
+  <button id="signinbtn"type="submit" style="background-color:#ef6603; color: white;padding: 10px 10px;border: none;cursor:pointer;max-width: 100%;opacity:0.9;border-radius:30px;"><span style="font-weight:bold;font-size:22px"> تسجيل </span></button>
+</form>
+			
 	</section><!-- end section contact -->
 	<footer>
 		<div class="verybottom">

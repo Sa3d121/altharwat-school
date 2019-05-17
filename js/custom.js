@@ -114,9 +114,9 @@ $(window).scroll(function() {
 });
 // Trigger nice scroll 
 $('html').niceScroll({
-	cursorcolor: "#13a4b6",
+	cursorcolor: "#ef6603",
 	cursorwidth: "10px",
-	cursorborder: "2px solid #13a4b6",
+	cursorborder: "2px solid #ef6603",
 	scrollspeed: "30"
 });
 $(window).on("load", function() {
@@ -140,11 +140,7 @@ function scrollFunction() {
 		document.getElementById("topnav").style.backgroundColor = "rgba(60, 172, 235, 0.28)";
 	}
 }
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-	document.body.scrollTop = 0;
-	document.documentElement.scrollTop = 0;
-}
+
 // Get the modal
 var modal1 = document.getElementById('myModal1');
 // Get the image and insert it inside the modal - use its "alt" text as a caption
@@ -183,3 +179,9 @@ ul.eq(3).css("backgroundColor", "#8b209eed").end()
 ul.click(function() {
 	$("link[href*='theme']").attr("href", $(this).attr("data-value"));
 });
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+}
