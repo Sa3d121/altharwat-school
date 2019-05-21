@@ -114,9 +114,9 @@ $(window).scroll(function() {
 });
 // Trigger nice scroll 
 $('html').niceScroll({
-	cursorcolor: "#ef6603",
+	cursorcolor: "#1f97c7",
 	cursorwidth: "10px",
-	cursorborder: "2px solid #ef6603",
+	cursorborder: "2px solid #1f97c7",
 	scrollspeed: "30"
 });
 $(window).on("load", function() {
@@ -172,7 +172,7 @@ $(".gear-check").click(function() {
 });
 // Change Theme Color On Click
 var ul = $(".color-option ul li");
-ul.eq(0).css("backgroundColor", "#ef6603").end()
+ul.eq(0).css("backgroundColor", "#1f97c7").end()
 ul.eq(1).css("backgroundColor", "rgba(230, 0, 36, 0.7);").end()
 ul.eq(2).css("backgroundColor", "#3f51b5").end()
 ul.eq(3).css("backgroundColor", "#8b209eed").end()

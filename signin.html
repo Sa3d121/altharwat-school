@@ -31,8 +31,8 @@
 		<div class="navbar " id="topnav" style="background-color:rgb(47, 48, 64);">
 			<div class="navbar-inner" style="background-color:rgb(47, 48, 64);">
 				<div class="container">
-														<a  href="index.html" style="float:left"><img alt="" src="img/logo.png"></a>
-				<p style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-size:30px;font-weight:bold;s">T N S</p> 
+					<a  href="index.html" style="float:left"><img alt="" src="img/logo.png"></a>
+				<p id="tns" style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-weight:bold;">T N S</p> 
 					<div class="navigation">
 						<nav>
 							
@@ -50,7 +50,7 @@
 									<a href="index.html">تواصل معنا</a>
 								</li>
 								<li class="current">
-									<a href="#signin">التسجيل </a>
+									<a href="signin.html">التسجيل </a>
 								</li>
 								</li>
 								<li>
@@ -70,35 +70,43 @@
 			</div>
 		</div>
 	</header>
-
-	<!-- section contact -->
+<!-- End Section Tool Box --><!-- section featured -->
+	<div id="sequence">
 	<section class="section" id="contactus" style="padding:50px">
 		<div class="container">
 		<div class="row">
 		  <div class="span12">
 					<div class="headline">
-						<h3 id="joinus"><span> تسجيل الدخول</span></h3>
+						<h3 id="joinus"><span> تسجيل الدخول </span></h3>
 					</div>
 				</div>
 <form action="/action_page.php" style="max-width:500px;margin:auto">
+	
 
   <div class="input-container">
    <i class="fa fa-envelope icon" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; البريد الالكتروني&nbsp;&nbsp;</span><span style="float:right"> :</span>
-    <input class="input-field" type="text" placeholder="Email" name="email"style="padding:20px;">
+    <input class="input-field" type="text" placeholder="ادخل بريدك الالكتروني" name="email"style="padding:20px;" required>
   </div>
+
   
   <div class="input-container">
    <i class="fa fa-key icon" style="float:right;padding:5px 0px"></i> <span style="float:right;">&nbsp;&nbsp; كلمه المرور &nbsp;&nbsp;</span>  <span style="float:right">:</span>
-    <input class="input-field" type="password" placeholder="Password" name="psw"style="padding:20px;" >
+    <input class="input-field" type="password" placeholder="كلمه المرور" name="psw"style="padding:20px;" required >
   </div>
+  
+     
+  
    <a href="signup.html" style="float:right;font-weight:bold;">  ليس لديك حساب ؟ سجل الان</a>
    <br>
-  <a href="forgetpass.html" style="float:right;font-weight:bold;"> هل نسيت كلمه المرور ؟ </a>
+   <a href="forgetpass.html" style="float:right;font-weight:bold;">  هل نسيت كلمه المرور ؟</a>
+   <br>
 <br>
-  <button id="signinbtn"type="submit" style="background-color:#ef6603; color: white;padding: 10px 10px;border: none;cursor:pointer;max-width: 100%;opacity:0.9;border-radius:30px;"><span style="font-weight:bold;font-size:22px"> تسجيل الدخول</span></button>
+  <button id="signinbtn"type="submit"><span style="font-weight:bold;font-size:22px"> تسجيل الدخول</span></button>
 </form>
 			
-	</section><!-- end section contact -->
+	</section>
+	</div>
+
 	<footer>
 		<div class="verybottom">
 			<div class="container">
@@ -112,7 +120,7 @@
 							<div class="social-links">
 								<ul class="social-links">
 									<li>
-										<a href="https://www.facebook.com/altharawat/" target="_blank" title="Facebook"><i class="icon-circled icon-64 icon-facebook"></i></a>
+										<a href="https://www.facebook.com/altharawat/" target="_blank" title="Facebook" ><i class="icon-circled icon-64 icon-facebook"></i></a>
 									</li>
 								</ul>	
 
@@ -173,6 +181,7 @@
 	 
 	<script src="js/custom.js">
 	</script>
+
 	
 </body>
 </html>
