@@ -32,7 +32,7 @@
 			<div class="navbar-inner" style="background-color:rgb(47, 48, 64);">
 				<div class="container">
 					<a  href="index.html" style="float:left"><img alt="" src="img/logo.png"></a>
-				<p id="tns" style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-weight:bold;">T N S</p> 
+				<p style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-size:30px;font-weight:bold;s">T N S</p> 
 					<div class="navigation">
 						<nav>
 							
@@ -50,7 +50,7 @@
 									<a href="index.html">تواصل معنا</a>
 								</li>
 								<li class="current">
-									<a href="signin.html">التسجيل </a>
+									<a href="#signin">التسجيل </a>
 								</li>
 								</li>
 								<li>
@@ -70,33 +70,46 @@
 			</div>
 		</div>
 	</header>
-<!-- End Section Tool Box --><!-- section featured -->
-	<section id="form">
-		<!-- sequence slider -->
-	
-		<div id="sequence">
-		
-							<div class="headline">
-						<h4 id="joinus"><span style="font-family:Adobe Arabic;font-weight:bold;">استعاده كلمه المرور</span></h4>
-					</div>
-				</div><br><br>
-<form action="/action_page.php" style="max-width:600px;margin:auto;">
 
-  <div class="input-container">
-   <i class="fa fa-envelope icon" style="float:right; padding:5px 0px;margin-top:10px;"> </i><span style="float:right;margin-top:10px;">&nbsp;&nbsp; ادخل البريد الالكتروني &nbsp;&nbsp;</span><span style="float:right;margin-top:10px;"> :</span>
-    <input class="input-field" type="text" placeholder="Email" name="email"style="padding:15px;width:250px;float:right;margin-right:10px;">
-  </div>
+	<!-- section contact -->
+	<div id="sequence">
+	<section class="section" id="contactus" style="padding:50px">
+		<div class="container">
+		<div class="row">
+		  <div class="span12">
+					<div class="headline">
+						<h3 id="joinus"><span> ارسل لنا رساله </span></h3>
+					</div>
+				</div>
+<form action="/action_page.php" style="max-width:500px;margin:auto">
 	
-<br><br><br>
-  <button id="returnpassbtn"type="submit"><span style="font-weight:bold;font-size:18px;">  استعاده كلمه المرور</span></button>
-    <button id="cancelbtn"type="submit"><span style="font-weight:bold;font-size:18px;"> الغاء</span></button>
+	<div class="input-container">
+    <i class="fa fa-user icon" style="float:right; padding:5px 0px;"></i> <span style="float:right">&nbsp;&nbsp;   الاسم  &nbsp;&nbsp;</span><span style="float:right"> :</span>
+    <input class="input-field" type="text" placeholder="الاسم" name="usrnm"style="padding:20px;" required>
+    </div>
+  <div class="input-container">
+   <i class="fa fa-envelope icon" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; البريد الالكتروني&nbsp;&nbsp;</span><span style="float:right"> :</span>
+    <input class="input-field" type="text" placeholder="ادخل بريدك الالكتروني" name="email"style="padding:20px;" required>
+  </div>
+    <div class="input-container">
+   <i class="fas fa-phone" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; الهاتف المحمول&nbsp;&nbsp;</span><span style="float:right"> :</span>
+    <input class="input-field" type="text" placeholder="ادخل رفم هاتفك المحمول متبوع  برمز البلد" name="phone"style="padding:20px;" required>
+  </div>
+    <div class="input-container">
+ <span style="float:right">&nbsp;&nbsp;   عنوان الرساله  &nbsp;&nbsp;</span><span style="float:right"> :</span>
+    <input class="input-field" type="text" placeholder="عنوان الرساله" name="usrnm"style="padding:20px;" required>
+    </div>
+	<div class="input-container">
+	<span style="float:right">&nbsp;&nbsp;   تفاصيل الرساله  &nbsp;&nbsp;</span><span style="float:right"> :</span>
+    <textarea rows="5" cols="180" style="padding:10px 100px;"></textarea>
+    </div>
+  
+   <button id="messagebtn"type="submit"><span style="font-weight:bold;font-size:20px;"> ارسال </span></button>
 
 </form>
-								
-								
-
+			
 	</section>
-  <br><br><br><br><br><br>
+	</div>
 	<footer>
 		<div class="verybottom">
 			<div class="container">
@@ -110,7 +123,7 @@
 							<div class="social-links">
 								<ul class="social-links">
 									<li>
-										<a href="https://www.facebook.com/altharawat/" target="_blank" title="Facebook" ><i class="icon-circled icon-64 icon-facebook"></i></a>
+										<a href="https://www.facebook.com/altharawat/" target="_blank" title="Facebook"><i class="icon-circled icon-64 icon-facebook"></i></a>
 									</li>
 								</ul>	
 
@@ -171,7 +184,6 @@
 	 
 	<script src="js/custom.js">
 	</script>
-
 	
 </body>
 </html>

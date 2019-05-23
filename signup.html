@@ -22,6 +22,27 @@
 	<link href="ico/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72">
 	<link href="ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon-precomposed">
 	<link href="icon/favicon.png" rel="shortcut icon" sizes="114x114">
+	<?php 
+		require 'config.php';
+		if (isset($_POST['submit']))
+		(
+		$username=$_POST['username'];
+		$email=$_POST['email'];
+		$mobile=$_POST['mobile'];
+		$password=$_POST['password'];
+		$sql="INSERT INTO accounts (id,username,email,mobile,password) VALUES 
+		(NULL,'$username','$email','$mobile','$password')";
+		mysql_query($sql)
+		header("Location: index.html")
+		
+		
+		)
+	
+	
+	
+	
+	
+	?>
 </head>
 <body>
 	<header>
@@ -32,7 +53,7 @@
 			<div class="navbar-inner" style="background-color:rgb(47, 48, 64);">
 				<div class="container">
 					<a  href="index.html" style="float:left"><img alt="" src="img/logo.png"></a>
-				<p style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-size:30px;font-weight:bold;s">T N S</p> 
+				<p id="tns" style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-weight:bold;">T N S</p> 
 					<div class="navigation">
 						<nav>
 							
@@ -50,7 +71,7 @@
 									<a href="index.html">تواصل معنا</a>
 								</li>
 								<li class="current">
-									<a href="#signin">التسجيل </a>
+									<a href="signin.html">التسجيل </a>
 								</li>
 								</li>
 								<li>
@@ -101,15 +122,12 @@
     <input class="input-field" type="password" placeholder="كلمه المرور" name="psw"style="padding:20px;" required >
   </div>
   
-     <div class="input-container">
-   <i class="fa fa-key icon" style="float:right;padding:5px 0px"></i> <span style="float:right;">&nbsp;&nbsp;  تاكيد كلمه المرور  &nbsp;&nbsp;</span>  <span style="float:right">:</span>
-    <input class="input-field" type="password" placeholder=" تاكيد كلمه المرور " name="psw"style="padding:20px;" required >
-  </div>
+
   
    <a href="signin.html" style="float:right;font-weight:bold;">  هل لديك حساب بالفعل ؟ قم بتسجيل الدخول</a>
    <br>
 <br>
-  <button id="signupbtn"type="submit"><span style="font-weight:bold;font-size:22px"> تسجيل </span></button>
+  <button id="signupbtn"type="submit" value="Register"><span style="font-weight:bold;font-size:22px"> تسجيل </span></button>
 </form>
 			
 	</section>

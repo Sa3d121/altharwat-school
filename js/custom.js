@@ -115,8 +115,8 @@ $(window).scroll(function() {
 // Trigger nice scroll 
 $('html').niceScroll({
 	cursorcolor: "#1f97c7",
-	cursorwidth: "10px",
-	cursorborder: "2px solid #1f97c7",
+	cursorwidth: "4px",
+	cursorborder: "3px solid #1f97c7",
 	scrollspeed: "30"
 });
 $(window).on("load", function() {
@@ -137,7 +137,7 @@ function scrollFunction() {
 		document.getElementById("topnav").style.backgroundColor = "#2f3040";
 	} else {
 		document.getElementById("myBtn1").style.display = "none";
-		document.getElementById("topnav").style.backgroundColor = "rgba(60, 172, 235, 0.28)";
+		document.getElementById("topnav").style.backgroundColor = "#2f3040";
 	}
 }
 
@@ -184,4 +184,24 @@ ul.click(function() {
 function topFunction() {
 	document.body.scrollTop = 0;
 	document.documentElement.scrollTop = 0;
+}
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
 }
