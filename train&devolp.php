@@ -1,4 +1,9 @@
+<?php
 
+session_start();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,36 +37,56 @@
 		<div class="navbar " id="topnav" style="background-color:rgb(47, 48, 64);">
 			<div class="navbar-inner" style="background-color:rgb(47, 48, 64);">
 				<div class="container">
-					<a  href="index.html" style="float:left"><img alt="" src="img/logo.png"></a>
+									<a  href="index.html" style="float:left"><img alt="" src="img/logo.png"></a>
 				<p style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-size:30px;font-weight:bold;s">T N S</p> 
 					<div class="navigation">
 						<nav>
 							
 							<ul class="nav pull-right">
 								<li>
-									<a href="index.php">الصفحه الرئيسيه</a>
+									<a href="userinterface.php">الصفحه الرئيسيه</a>
 								</li>
 								<li>
-									<a href="index.php">عن مدرستنا</a>
+									<a href="userinterface.php">عن مدرستنا</a>
 						
 								<li>
-									<a href="index.php ">القسم الاعلامي</a>
+									<a href="userinterface.php ">القسم الاعلامي</a>
+								</li>
+								<li>
+									<a href="userinterface.php">تواصل معنا</a>
+								</li>
+							 <li class="nav-item dropdown">
+                                    <?php
+                                        if(isset($_SESSION['username'])):
+                                        ?> <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <?php echo $_SESSION['username']?> مرحبا </a>
+
+                                    <div class="dropdown-menu" style=" color:white;background-color:#666">
+
+
+                                        <a class="dropdown-item" href="signout.php">تسجيل الخروج</a>
+
+
+                                    </div>
+
+
+                                    <?php
+                                        else:
+										header("location: index.php");
+														?>
+                                    <?php
+			                         endif;
+			                         ?>
+                                </li>
 								</li>
 								<li class="current">
-									<a href="index.php">تواصل معنا</a>
+									<a href="train&devolp.php">التطوير و التدريب</a>
 								</li>
 								<li>
-									<a href="signin.php">التسجيل </a>
-								</li>
-								</li>
-								<li>
-									<a href="train&devolp.html">التطوير و التدريب</a>
+									<a href="studentcorner.php">ركن الطلاب</a>
 								</li>
 								<li>
-									<a href="studentcorner.html">ركن الطلاب</a>
-								</li>
-								<li>
-									<a href="schedule.html">جدول الحصص</a>
+									<a href="schedule.php">جدول الحصص</a>
 								</li>
 								
 							</ul>						
@@ -71,21 +96,15 @@
 			</div>
 		</div>
 	</header>
-	<!-- section contact -->
-    <div id="sequence">
-	<section class="section" id="contactus" style="padding:50px">
-		<div class="container">
-		<div class="row">
-		  <div class="span12">
-					<div class="headline">
-						<h3 id="joinus"><span> يجب ان تسجل دخول اولا</span></h3>
-					</div>
-				</div>
-          
 
-        </section>
-    </div>
-  	<footer>
+
+	<!-- section contact -->
+	<section class="section" id="contactus">
+		<div class="container">
+		
+		</div>	
+	</section><!-- end section contact -->
+	<footer>
 		<div class="verybottom">
 			<div class="container">
 				<div class="row">

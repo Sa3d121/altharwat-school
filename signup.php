@@ -1,3 +1,59 @@
+<?php
+
+	if($_SERVER['REQUEST_METHOD']=='POST')
+	{
+
+		
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "school";
+	
+	 
+	try {
+		
+		
+		
+		
+	    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+	    // set the PDO error mode to exception
+	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                
+        $conn->query("SET NAMES 'UTF8'");
+
+	    	  
+	    $username=$_POST['username'];
+	    $email=$_POST['email'];
+	    $password=($_POST['password']);
+	    $mobile=$_POST['mobile'];
+	    
+
+	    $stmt = $conn->prepare("INSERT INTO students (name, email, password,mobile) 
+	    VALUES (:name, :email, :password, :mobile)");
+	    $stmt->bindParam(':name', $username);
+	    $stmt->bindParam(':email', $email);
+	    $stmt->bindParam(':password', $password);
+	    $stmt->bindParam(':mobile', $mobile);
+	    
+	    $stmt->execute();
+
+	    
+	    
+	    header("location:signin.php");
+	    }
+	catch(PDOException $e)
+	    {
+	    echo "<br>" . $e->getMessage();
+	    }
+
+	$conn = null;
+
+    
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,12 +79,12 @@
 	<link href="ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon-precomposed">
 	<link href="icon/favicon.png" rel="shortcut icon" sizes="114x114">
 </head>
-<body>
-	<header>
+<body>  	
+		<header>
 	
 <!-- start top -->
 
-		<div class="navbar " id="topnav" style="background-color:rgb(47, 48, 64);">
+	<div class="navbar " id="topnav" style="background-color:rgb(47, 48, 64);">
 			<div class="navbar-inner" style="background-color:rgb(47, 48, 64);">
 				<div class="container">
 					<a  href="index.html" style="float:left"><img alt="" src="img/logo.png"></a>
@@ -38,19 +94,19 @@
 							
 							<ul class="nav pull-right">
 								<li>
-									<a href="index.html">الصفحه الرئيسيه</a>
+									<a href="index.php">الصفحه الرئيسيه</a>
 								</li>
 								<li>
-									<a href="index.html">عن مدرستنا</a>
+									<a href="index.php">عن مدرستنا</a>
 						
 								<li>
-									<a href="index.html ">القسم الاعلامي</a>
+									<a href="index.php ">القسم الاعلامي</a>
 								</li>
 								<li>
-									<a href="index.html">تواصل معنا</a>
+									<a href="index.php">تواصل معنا</a>
 								</li>
 								<li class="current">
-									<a href="signin.html">التسجيل </a>
+									<a href="signup.php">التسجيل </a>
 								</li>
 								</li>
 								<li>
@@ -70,35 +126,51 @@
 			</div>
 		</div>
 	</header>
-<!-- End Section Tool Box --><!-- section featured -->
-	<section id="form">
-		<!-- sequence slider -->
 	
-		<div id="sequence">
-		
-							<div class="headline">
-						<h4 id="joinus"><span style="font-family:Adobe Arabic;font-weight:bold;">استعاده كلمه المرور</span></h4>
+    	<!-- section contact -->
+	<div id="sequence">
+	<section class="section" id="contactus" style="padding:50px">
+		<div class="container">
+		<div class="row">
+		  <div class="span12">
+					<div class="headline">
+						<h3 id="joinus"><span> التسجيل </span></h3>
 					</div>
-				</div><br><br>
-<form action="/action_page.php" style="max-width:600px;margin:auto;">
-
-  <div class="input-container">
-   <i class="fa fa-envelope icon" style="float:right; padding:5px 0px;margin-top:10px;"> </i><span style="float:right;margin-top:10px;">&nbsp;&nbsp; ادخل البريد الالكتروني &nbsp;&nbsp;</span><span style="float:right;margin-top:10px;"> :</span>
-    <input class="input-field" type="text" placeholder="Email" name="email"style="padding:15px;width:250px;float:right;margin-right:10px;">
-  </div>
-	
-<br><br><br>
-  <button id="returnpassbtn"type="submit"><span style="font-weight:bold;font-size:18px;">  استعاده كلمه المرور</span></button>
-    <button id="cancelbtn"type="submit"><span style="font-weight:bold;font-size:18px;"> الغاء</span></button>
-
-</form>
-								
-								
-
+				</div>
+        <form id="regiseration" action="<?php echo $_SERVER['PHP_SELF']?>" method="post" style="max-width:500px;margin:auto">
+           
+            <div class="input-container">
+			<i class="fa fa-user icon" style="float:right; padding:5px 0px"></i> <span style="float:right">&nbsp;&nbsp; اسم المستخدم &nbsp;&nbsp;</span><span style="float:right"> :</span>
+            <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="ادخل الاسم" name="username"style="padding:20px;" required> 			
+            </div>
+   
+            <div class="input-container">
+			<i class="fa fa-envelope icon" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; البريد الالكتروني&nbsp;&nbsp;</span><span style="float:right"> :</span>
+			<input type="email" class="form-control" id="useremail" aria-describedby="emailHelp" placeholder="ادخل الايميل" name="email" style="padding:20px;width:100%;margin: 8px 0;display:inline-block;border: 1px solid #ccc;box-sizing: border-box;" required>
+            </div>
+			
+            <div class="input-container">
+			<i class="fa fa-key icon" style="float:right;padding:5px 0px"></i> <span style="float:right;">&nbsp;&nbsp; كلمه المرور &nbsp;&nbsp;</span>  <span style="float:right">:</span>
+			<input type="password" class="form-control" id="userpassword" placeholder="ادخل كلمة السر" name="password"style="padding:20px;" required >			
+			</div>   
+			
+				<div class="input-container">
+				<i class="fas fa-phone" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; الهاتف المحمول&nbsp;&nbsp;</span><span style="float:right"> :</span>
+				<input type="text" class="form-control" id="usermobile" placeholder="ادخل الموبايل" name="mobile" style="padding:20px;" required>
+				</div>
+				<a href="signin.php" style="float:right;font-weight:bold;">  هل لديك حساب بالفعل ؟ قم بتسجيل الدخول</a>
+   <br>
+ 
+<br>
+  <button id="signupbtn"type="submit" value="Register"><span style="font-weight:bold;font-size:22px"> تسجيل </span></button>
+  </form>
+    </div>
+	</div>
 	</section>
-  <br><br><br><br><br><br>
+	</div>
+
 	<footer>
-		<div class="verybottom">
+	<div class="verybottom">
 			<div class="container">
 				<div class="row">
 					<div class="span12">
@@ -110,7 +182,7 @@
 							<div class="social-links">
 								<ul class="social-links">
 									<li>
-										<a href="https://www.facebook.com/altharawat/" target="_blank" title="Facebook" ><i class="icon-circled icon-64 icon-facebook"></i></a>
+										<a href="https://www.facebook.com/altharawat/" target="_blank" title="Facebook"><i class="icon-circled icon-64 icon-facebook"></i></a>
 									</li>
 								</ul>	
 
@@ -171,7 +243,7 @@
 	 
 	<script src="js/custom.js">
 	</script>
-
+		<script src='https://www.google.com/recaptcha/api.js'></script>
 	
 </body>
 </html>

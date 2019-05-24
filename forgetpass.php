@@ -22,27 +22,6 @@
 	<link href="ico/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72">
 	<link href="ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon-precomposed">
 	<link href="icon/favicon.png" rel="shortcut icon" sizes="114x114">
-	<?php 
-		require 'config.php';
-		if (isset($_POST['submit']))
-		(
-		$username=$_POST['username'];
-		$email=$_POST['email'];
-		$mobile=$_POST['mobile'];
-		$password=$_POST['password'];
-		$sql="INSERT INTO accounts (id,username,email,mobile,password) VALUES 
-		(NULL,'$username','$email','$mobile','$password')";
-		mysql_query($sql)
-		header("Location: index.html")
-		
-		
-		)
-	
-	
-	
-	
-	
-	?>
 </head>
 <body>
 	<header>
@@ -59,19 +38,19 @@
 							
 							<ul class="nav pull-right">
 								<li>
-									<a href="index.html">الصفحه الرئيسيه</a>
+									<a href="index.php">الصفحه الرئيسيه</a>
 								</li>
 								<li>
-									<a href="index.html">عن مدرستنا</a>
+									<a href="index.php">عن مدرستنا</a>
 						
 								<li>
-									<a href="index.html ">القسم الاعلامي</a>
+									<a href="iindex.php ">القسم الاعلامي</a>
 								</li>
 								<li>
-									<a href="index.html">تواصل معنا</a>
+									<a href="index.php">تواصل معنا</a>
 								</li>
 								<li class="current">
-									<a href="signin.html">التسجيل </a>
+									<a href="signin.php">التسجيل </a>
 								</li>
 								</li>
 								<li>
@@ -91,47 +70,33 @@
 			</div>
 		</div>
 	</header>
-
-	<!-- section contact -->
-	<div id="sequence">
-	<section class="section" id="contactus" style="padding:50px">
-		<div class="container">
-		<div class="row">
-		  <div class="span12">
-					<div class="headline">
-						<h3 id="joinus"><span> التسجيل </span></h3>
-					</div>
-				</div>
-<form action="/action_page.php" style="max-width:500px;margin:auto">
+<!-- End Section Tool Box --><!-- section featured -->
+	<section id="form">
+		<!-- sequence slider -->
 	
-	<div class="input-container">
-    <i class="fa fa-user icon" style="float:right; padding:5px 0px;"></i> <span style="float:right">&nbsp;&nbsp; اسم المستخدم &nbsp;&nbsp;</span><span style="float:right"> :</span>
-    <input class="input-field" type="text" placeholder="اسم المستخدم" name="usrnm"style="padding:20px;" required>
-  
-  <div class="input-container">
-   <i class="fa fa-envelope icon" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; البريد الالكتروني&nbsp;&nbsp;</span><span style="float:right"> :</span>
-    <input class="input-field" type="text" placeholder="ادخل بريدك الالكتروني" name="email"style="padding:20px;" required>
-  </div>
-    <div class="input-container">
-   <i class="fas fa-phone" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; الهاتف المحمول&nbsp;&nbsp;</span><span style="float:right"> :</span>
-    <input class="input-field" type="text" placeholder="ادخل رفم هاتفك المحمول متبوع  برمز البلد" name="phone"style="padding:20px;" required>
-  </div>
-  
-  <div class="input-container">
-   <i class="fa fa-key icon" style="float:right;padding:5px 0px"></i> <span style="float:right;">&nbsp;&nbsp; كلمه المرور &nbsp;&nbsp;</span>  <span style="float:right">:</span>
-    <input class="input-field" type="password" placeholder="كلمه المرور" name="psw"style="padding:20px;" required >
-  </div>
-  
+		<div id="sequence">
+		
+							<div class="headline">
+						<h4 id="joinus"><span style="font-family:Adobe Arabic;font-weight:bold;">استعاده كلمه المرور</span></h4>
+					</div>
+				</div><br><br>
+<form action="/action_page.php" style="max-width:600px;margin:auto;">
 
-  
-   <a href="signin.html" style="float:right;font-weight:bold;">  هل لديك حساب بالفعل ؟ قم بتسجيل الدخول</a>
-   <br>
-<br>
-  <button id="signupbtn"type="submit" value="Register"><span style="font-weight:bold;font-size:22px"> تسجيل </span></button>
+  <div class="input-container">
+   <i class="fa fa-envelope icon" style="float:right; padding:5px 0px;margin-top:10px;"> </i><span style="float:right;margin-top:10px;">&nbsp;&nbsp; ادخل البريد الالكتروني &nbsp;&nbsp;</span><span style="float:right;margin-top:10px;"> :</span>
+    <input class="input-field" type="text" placeholder="Email" name="email"style="padding:15px;width:250px;float:right;margin-right:10px;">
+  </div>
+	
+<br><br><br>
+  <button id="returnpassbtn"type="submit"><span style="font-weight:bold;font-size:18px;">  استعاده كلمه المرور</span></button>
+    <button id="cancelbtn"type="submit"><span style="font-weight:bold;font-size:18px;"> الغاء</span></button>
+
 </form>
-			
+								
+								
+
 	</section>
-	</div>
+  <br><br><br><br><br><br>
 	<footer>
 		<div class="verybottom">
 			<div class="container">
@@ -145,7 +110,7 @@
 							<div class="social-links">
 								<ul class="social-links">
 									<li>
-										<a href="https://www.facebook.com/altharawat/" target="_blank" title="Facebook"><i class="icon-circled icon-64 icon-facebook"></i></a>
+										<a href="https://www.facebook.com/altharawat/" target="_blank" title="Facebook" ><i class="icon-circled icon-64 icon-facebook"></i></a>
 									</li>
 								</ul>	
 
@@ -206,6 +171,7 @@
 	 
 	<script src="js/custom.js">
 	</script>
+
 	
 </body>
 </html>

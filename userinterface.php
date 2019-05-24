@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,47 +42,71 @@
 				<div class="container">
 					
 				<a  href="index.html" style="float:left"><img alt="" src="img/logo.png"></a>
-				<p id="tns" style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-weight:bold;s">T N S</p> 
+				<p id="tns" style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-weight:bold;">T N S</p> 
 		
 
 					
-					<div class="navigation">
-						<nav>
-							<ul class="nav pull-right">
-				
-								<li class="current">
-									<a href="#featured">الصفحه الرئيسيه</a>
-								</li>
-								<li>
-									<a href="#aboutus">عن مدرستنا</a>
-						         </li>
-								<li>
-									<a href="#works">القسم الاعلامي</a>
-								</li>
-								<li>
-									<a href="#contactus">تواصل معنا</a>
-								</li>
-								<li>
-									<a href="signin.html">التسجيل </a>
-								</li>
-								
-								<li>
-									<a href="train&devolp.html">التطوير و التدريب</a>
-								</li>
-								<li>
-									<a href="studentcorner.html">ركن الطلاب</a>
-								</li>
-								<li>
-									<a href="schedule.html">جدول الحصص</a>
-								</li>
-								
-							</ul>						
-						</nav>
-					</div><!--/.nav-collapse -->
-				</div>
-			</div>
-		</div><!-- end top -->
-	</header><!-- Start Section Tool Box -->
+                    <div class="navigation">
+                        <nav>
+                            <ul class="nav pull-right">
+
+                                <li class="current">
+                                    <a href="#featured">الصفحه الرئيسيه</a>
+                                </li>
+                                <li>
+                                    <a href="#aboutus">عن مدرستنا</a>
+
+                                <li>
+                                    <a href="#works">القسم الاعلامي</a>
+                                </li>
+                                <li>
+                                    <a href="#contactus">تواصل معنا</a>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <?php
+                                        if(isset($_SESSION['username'])):
+                                        ?> <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <?php echo $_SESSION['username']?> مرحبا </a>
+
+                                    <div class="dropdown-menu" style=" color:white;background-color:#666">
+
+
+                                        <a class="dropdown-item" href="signout.php">تسجيل الخروج</a>
+
+
+                                    </div>
+
+
+                                    <?php
+                                        else:
+										header("location: index.php");
+									
+														?>
+							
+									
+                                    <?php
+			                         endif;
+			                         ?>
+                                </li>
+                                <li>
+                                    <a href="train&devolp.php">التطوير و التدريب</a>
+                                </li>
+                                <li>
+                                    <a href="studentcorner.php">ركن الطلاب</a>
+                                </li>
+                                <li>
+                                    <a href="schedule.php">جدول الحصص</a>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </div><!-- end top -->
+   </header><!-- Start Section Tool Box -->
 <!-- End Section Tool Box --><!-- section featured -->
 	<section id="featured">
 		<!-- sequence slider -->
@@ -284,14 +314,15 @@
 						<h3 class=" wow fadeInUp" data-offset="300" data-wow-delay=".5s" data-wow-duration="3s" ><span>تواصل معنا</span></h3>
 					</div>
 				</div>
-								<p style="text-align:center;font-size:30px;"><a href="messagepage.html" id="msg"> ا تريد ان ترسل رساله لنا ؟</a></p>
+                <p class=" wow fadeInUp" data-offset="300" data-wow-delay=".5s" data-wow-duration="3s" style="text-align:center;font-size:30px;"><a href="messagepage.php" id="msg" style="color: #1f97c7; text-decoration: none;"> ا تريد ان ترسل رساله لنا ؟</a></p>
+                <p class=" wow fadeInUp" data-offset="300" data-wow-delay=".5s" data-wow-duration="3s" style="text-align:center;font-size:30px;"><a href="signin.php" id="msg" style="color: #1f97c7; text-decoration: none;"> ا تريد ان ترسل رساله لنا ؟</a></p>
 
 			</div>
 			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4670.945540677754!2d54.64221254489483!3d24.28952750470833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e372ddb92299f%3A0xb696a269da76c9d3!2z2YXYr9ix2LPYqSDYp9mE2KvYsdmI2KfYqg!5e0!3m2!1sen!2seg!4v1555441075048!5m2!1sen!2seg" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen class=" wow fadeInDown" data-offset="300" data-wow-delay=".5s" data-wow-duration="3s" ></iframe>
 			<div class="row">
 				<div id="col" class="col-lg-4 col-sm-6 col-xs-12  col-md-6  wow rollIn" data-offset="300" data-wow-delay=".5s" data-wow-duration="3s"   style="background-color:#b53f7d9e;height:340px;display:inline-block;position:relative;">
 				<i id="picon" class="fa fa-envelope fa-3x sample-icons" style="position:absolute;top:5%;left:25%;font-size:10rem;color:#deccccde;"></i>
-				<p id="pbox" style="text-align:center;color:white;position:absolute;top:70%;">altharwatschool@hotmail.com</p>
+				<p id="pbox" style="text-align:center;color:white;position:absolute;top:70%;">altharwatschool@gmail.com</p>
 				</div>
 				<div id="col" class="col-lg-4 col-sm-6 col-xs-12  col-md-6 wow bounceIn" data-offset="300" data-wow-delay="2s" data-wow-duration="3s"  style="background-color:#54a79f;height:340px;display:inline-block;position:relative;">
 				<i id="picon"class="fa fa-phone fa-3x sample-icons" style="position:absolute;top:5%;left:25%;font-size:10rem;color:#deccccde;"></i>
@@ -323,12 +354,7 @@
 									<li>
 										<a href="https://www.facebook.com/altharawat/" target="_blank" title="Facebook"><i class="icon-circled icon-64 icon-facebook"></i></a>
 									</li>
-									<li>
-										<a href="https://www.facebook.com/altharawat/" target="_blank" title="Facebook"><i class="icon-circled icon-64 icon-twitter"></i></a>
-									</li>
-									<li>
-										<a href="https://www.facebook.com/altharawat/" target="_blank" title="Facebook"><i class="icon-circled icon-64 icon-pinterest"></i></a>
-									</li>
+									
 								</ul>	
 
 								Designed by <a href="#">Sa3d</a>

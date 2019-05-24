@@ -1,4 +1,54 @@
+<?php
 
+if($_SERVER['REQUEST_METHOD'] =='POST')
+{
+
+
+require 'mailer/PHPMailerAutoload.php';
+
+$mail = new PHPMailer;
+
+//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'altharwatschool20@gmail.com';                 // SMTP username
+$mail->Password = 'Altharwat_School1999';                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;                                    // TCP port to connect to
+
+$mail->setFrom($_POST['email'],$_POST['usrnm'] );
+$mail->addAddress('altharwatschool20@gmail.com', 'hashem');     // Add a recipient
+$mail->addAddress($_POST['email']);               // Name is optional
+$mail->addReplyTo($_POST['email'], 'Information');
+//$mail->addCC('cc@example.com');
+//$mail->addBCC('bcc@example.com');
+
+//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+$mail->isHTML(true);                                  // Set email format to HTML
+
+$mail->Subject = $_POST['subject'];
+$mail->Body    = $_POST['body'];
+$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+if(!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+	}
+	else {
+    echo 'Message has been sent';
+}
+
+
+
+	
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,9 +100,29 @@
 								<li class="current">
 									<a href="index.php">تواصل معنا</a>
 								</li>
-								<li>
-									<a href="signin.php">التسجيل </a>
-								</li>
+								<li class="nav-item dropdown">
+                                    <?php
+                                        if(isset($_SESSION['username'])):
+                                        ?> <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <?php echo $_SESSION['username']?> مرحبا </a>
+
+                                    <div class="dropdown-menu" style=" color:white;background-color:#666">
+
+
+                                        <a class="dropdown-item" href="signout.php">تسجيل الخروج</a>
+
+
+                                    </div>
+
+
+                                    <?php
+                                        else:
+										header("location: index.php");
+														?>
+                                    <?php
+			                         endif;
+			                         ?>
+                                </li>
 								</li>
 								<li>
 									<a href="train&devolp.html">التطوير و التدريب</a>
@@ -78,10 +148,31 @@
 		<div class="row">
 		  <div class="span12">
 					<div class="headline">
-						<h3 id="joinus"><span> يجب ان تسجل دخول اولا</span></h3>
+						<h3 id="joinus"><span> ارسل لنا رساله </span></h3>
 					</div>
 				</div>
-          
+                   <form action="messagepage.php" method="post" style="max-width:500px;margin:auto">
+
+                        <div class="input-container">
+                            <i class="fa fa-user icon" style="float:right; padding:5px 0px;"></i> <span style="float:right">&nbsp;&nbsp; الاسم &nbsp;&nbsp;</span><span style="float:right"> :</span>
+                            <input class="input-field" type="text" placeholder="الاسم" name="usrnm" style="padding:20px;" required>
+                        </div>
+                        <div class="input-container">
+                            <i class="fa fa-envelope icon" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; البريد الالكتروني&nbsp;&nbsp;</span><span style="float:right"> :</span>
+                            <input class="input-field" type="text" placeholder="ادخل بريدك الالكتروني" name="email" style="padding:20px;" required>
+                        </div>  
+                        <div class="input-container">
+                            <span style="float:right">&nbsp;&nbsp; عنوان الرساله &nbsp;&nbsp;</span><span style="float:right"> :</span>
+                            <input class="input-field" type="text" placeholder="عنوان الرساله" name="subject" style="padding:20px;" required>
+                        </div>
+                        <div class="input-container">
+                            <span style="float:right">&nbsp;&nbsp; تفاصيل الرساله &nbsp;&nbsp;</span><span style="float:right"> :</span>
+                            <textarea rows="5" cols="180" name="body" style="padding:10px 100px;"></textarea>
+                        </div>
+
+                        <button id="messagebtn" type="submit"><span style="font-weight:bold;font-size:20px;"> ارسال </span></button>
+
+                    </form>
 
         </section>
     </div>

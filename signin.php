@@ -1,3 +1,64 @@
+<?php
+
+if (isset($_POST['submit']))
+ {
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "school";
+
+	try {
+	    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+	    // set the PDO error mode to exception
+	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $conn->query("SET NAMES 'UTF8'");
+
+	   
+	  $email=$_POST['email'];
+
+	   $stmt = $conn->prepare("SELECT * FROM `students` WHERE email=:email");
+	  
+	    $stmt->bindParam(':email', $email);
+	 
+	    
+	    $stmt->execute();
+	    $user=$stmt->fetch();
+	    if($user)
+	    {
+	     
+
+	    	if($_POST['password'] == $user['password'])
+	    	{
+                session_start();
+	    		$_SESSION['username']=$user['name'];
+	    		header("location:userinterface.php");
+	    		
+	    	}
+	    	else{
+	    		echo "الايميل موجود ولكن كلمة السر خاطئه";
+	    	}
+
+
+	    	 
+	    }
+	    else{
+	    	echo "الايميل غير موجود من فضلك انشىء حساب جديد";
+	    }
+	   
+	   
+	    }
+	catch(PDOException $e)
+	    {
+	    echo "<br>" . $e->getMessage();
+	    }
+
+	$conn = null;
+
+
+ }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,19 +99,19 @@
 							
 							<ul class="nav pull-right">
 								<li>
-									<a href="index.html">الصفحه الرئيسيه</a>
+									<a href="index.php">الصفحه الرئيسيه</a>
 								</li>
 								<li>
-									<a href="index.html">عن مدرستنا</a>
+									<a href="index.php">عن مدرستنا</a>
 						
 								<li>
-									<a href="index.html ">القسم الاعلامي</a>
+									<a href="index.php ">القسم الاعلامي</a>
 								</li>
 								<li>
-									<a href="index.html">تواصل معنا</a>
+									<a href="index.php">تواصل معنا</a>
 								</li>
 								<li class="current">
-									<a href="signin.html">التسجيل </a>
+									<a href="signin.php">التسجيل </a>
 								</li>
 								</li>
 								<li>
@@ -70,8 +131,7 @@
 			</div>
 		</div>
 	</header>
-<!-- End Section Tool Box --><!-- section featured -->
-	<div id="sequence">
+ 	<div id="sequence">
 	<section class="section" id="contactus" style="padding:50px">
 		<div class="container">
 		<div class="row">
@@ -80,34 +140,36 @@
 						<h3 id="joinus"><span> تسجيل الدخول </span></h3>
 					</div>
 				</div>
-<form action="/action_page.php" style="max-width:500px;margin:auto">
-	
+        <form action="signin.php" method="post" style="max-width:500px;margin:auto">
+         
+		<div class="input-container">
+		<i class="fa fa-envelope icon" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; البريد الالكتروني&nbsp;&nbsp;</span><span style="float:right"> :</span>
+		<input type="email" class="form-control" id="email" placeholder="ادخل الايميل" name="email"style="padding:20px;width:100%;margin: 8px 0;display:inline-block;border: 1px solid #ccc;box-sizing: border-box;" required>
+			</div>
+           
+		<div class="input-container">
+		<i class="fa fa-key icon" style="float:right;padding:5px 0px"></i> <span style="float:right;">&nbsp;&nbsp; كلمه المرور &nbsp;&nbsp;</span>  <span style="float:right">:</span>
+		<input type="password" class="form-control" id="pwd" placeholder="ادخل كلمة السر" name="password"style="padding:20px;" required >
+		</div>
+  
 
-  <div class="input-container">
-   <i class="fa fa-envelope icon" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; البريد الالكتروني&nbsp;&nbsp;</span><span style="float:right"> :</span>
-    <input class="input-field" type="text" placeholder="ادخل بريدك الالكتروني" name="email"style="padding:20px;" required>
-  </div>
+        
+                <a href="forgetpass.php" style="float:right;font-weight:bold;">نسيت كلمة السر؟</a> 
+			<br>
+                <a href="signup.php" style="float:right;font-weight:bold;"> ليس لديك حساب ؟ سجل الان</a>
+            
 
-  
-  <div class="input-container">
-   <i class="fa fa-key icon" style="float:right;padding:5px 0px"></i> <span style="float:right;">&nbsp;&nbsp; كلمه المرور &nbsp;&nbsp;</span>  <span style="float:right">:</span>
-    <input class="input-field" type="password" placeholder="كلمه المرور" name="psw"style="padding:20px;" required >
-  </div>
-  
-     
-  
-   <a href="signup.html" style="float:right;font-weight:bold;">  ليس لديك حساب ؟ سجل الان</a>
-   <br>
-   <a href="forgetpass.html" style="float:right;font-weight:bold;">  هل نسيت كلمه المرور ؟</a>
-   <br>
-<br>
-  <button id="signinbtn"type="submit" value="Login"><span style="font-weight:bold;font-size:22px"> تسجيل الدخول</span></button>
-</form>
-			
+            <br>
+  <button id="signinbtn"type="submit" name="submit"><span style="font-weight:bold;font-size:22px"> تسجيل الدخول</span></button>
+        </form>
+    </div>
+	</div>
 	</section>
 	</div>
 
-	<footer>
+
+
+<footer>
 		<div class="verybottom">
 			<div class="container">
 				<div class="row">
