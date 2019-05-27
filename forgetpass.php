@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +34,7 @@
 		<div class="navbar " id="topnav" style="background-color:rgb(47, 48, 64);">
 			<div class="navbar-inner" style="background-color:rgb(47, 48, 64);">
 				<div class="container">
-					<a  href="index.html" style="float:left"><img alt="" src="img/logo.png"></a>
-				<p id="tns" style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-weight:bold;">T N S</p> 
+					<a  href="index.php" style="float:left"><img alt="" src="img/logo.png"></a>
 					<div class="navigation">
 						<nav>
 							

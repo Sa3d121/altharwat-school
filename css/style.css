@@ -1,5 +1,3 @@
-
-
 @import url('font-awesome.css');
 /* ==== overwrite bootstrap standard ==== */
 
@@ -708,21 +706,9 @@ iframe.contact-map{
 	-ms-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-#myBtn1 {
-	display: none;
-	width:auto;
-	position: fixed;
-	bottom: 5%;
-	right: 5%;
-	z-index: 99;
-	font-size: 18px;
-	border: none;
-	outline: none;
-	color: white;
-	cursor: pointer;
-	padding: 15px;
-	border-radius: 4px;
+
 }
+
 #myBtn1:hover {
 	background-color:#185f7c;
 }
@@ -1132,9 +1118,7 @@ section#featured {
 	#col{
 		width:29%;
 	}
-	#tns{
-		font-size:30px;
-	}
+
 	#pbox{
 		font-size:20px;
 	}
@@ -1871,9 +1855,7 @@ img.pull-left {
 	body{
 		overflow:hidden !important;
 	}
-	#tns{
-		font-size:26px;
-	}
+
 	#topnav .navbar-inner .container .logo {
 		padding-left: 20px;
 		padding-right: 20px;
@@ -1914,9 +1896,7 @@ img.pull-left {
 		margin-left: 20px;
 		margin-right: 20px;
 	}
-	#tns{
-		font-size:24px;
-	}
+	
 		div nav ul {
 		display: none;
 	}
@@ -1984,9 +1964,12 @@ img.pull-left {
 	
 }
 @media(min-width: 480px) and (max-width: 767px) {
+	
 	body{
 		overflow:hidden !important;
 	}
+
+		
 	   #col{
 		 width:90%;
 		 margin:0px 10px;
@@ -1995,9 +1978,7 @@ img.pull-left {
 			font-size:24px;
 			
 		}
-	#tns{
-		font-size:20px;
-	}
+
 	#form{
 		margin:20px;
 	}
@@ -2075,6 +2056,7 @@ img.pull-left {
 	.tweet span {
 		line-height: 1.5em;
 	}
+
 }
 @media  (min-width: 300px) and (max-width: 480px) {
 	.headline h3{
@@ -2095,10 +2077,7 @@ img.pull-left {
 		margin-left:15%;
 		margin-right:2%;	
 	}
-	#tns{
-		font-size:18px;
-		margin-top:25px;
-	}
+
 	body{
 		overflow:hidden !important;
 	}
@@ -2206,20 +2185,14 @@ img.pull-left {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
-			}
-				#tns{
-		font-size:13px;
-		margin-top:30px;
-	}
+
 
 			}
 @media  (max-width: 300px) and (min-width: 100px) {
 	#pbox{
 		font-size:18px;
 	}
-	#tns{
-		font-size:13px;
-		margin-top:30px;
+
 	}
 	#signupbtn,#signinbtn{
 		padding:10px 20px;

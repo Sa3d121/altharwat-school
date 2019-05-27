@@ -31,18 +31,17 @@ session_start();
 </head>
 <body>
 	<header>
-		<div class="loading-overlay">
+	<!--	<div class="loading-overlay">
 		<div class="lds-hourglass"></div>
-		</div>
+		</div> -->
 <!-- start top -->
-		</div><button id="myBtn1" onclick="topFunction()" style="display: block;" title="Go to top">Top</button>
+        <button id="myBtn1" style="display: none;width:auto;position: fixed;bottom: 5%;right: 5%;z-index: 99;font-size: 18px;border: none;outline: none;color: white;cursor: pointer;padding: 15px;border-radius: 4px;" onclick="topFunction()" style="display: block;" title="Go to top">Top</button>
 
 		<div class="navbar navbar-fixed-top default" id="topnav">
 			<div class="navbar-inner">
 				<div class="container">
 					
 				<a  href="index.html" style="float:left"><img alt="" src="img/logo.png"></a>
-				<p id="tns" style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-weight:bold;">T N S</p> 
 		
 
 					
@@ -62,8 +61,30 @@ session_start();
                                 <li>
                                     <a href="#contactus">تواصل معنا</a>
                                 </li>
-								<li>
-								    <a href="signin.php"> التسجيل</a>
+								   <li class="nav-item dropdown">
+                                    <?php
+                                        if(isset($_SESSION['username'])):
+                                        ?> <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <?php echo $_SESSION['username']?> مرحبا </a>
+
+                                    <div class="dropdown-menu" style=" color:white;background-color:#666">
+
+                                        <a class="dropdown-item" href="changepassword.php">تغير كلمة السر</a>
+
+                                        <a class="dropdown-item" href="signout.php">تسجيل الخروج</a>
+
+
+                                    </div>
+
+
+                                    <?php
+                                        else:
+                                        ?> <a class="nav-link dropdown-toggle" href="signin.php">تسجيل الدخول</a>
+                                    
+
+                                    <?php
+			                         endif;
+			                         ?>
                                 </li>
                                 <li>
                                     <a href="train&devolp.html">التطوير و التدريب</a>
@@ -290,7 +311,10 @@ session_start();
 						<h3 class=" wow fadeInUp" data-offset="300" data-wow-delay=".5s" data-wow-duration="3s" ><span>تواصل معنا</span></h3>
 					</div>
 				</div>
-                <p class=" wow fadeInUp" data-offset="300" data-wow-delay=".5s" data-wow-duration="3s" style="text-align:center;font-size:30px;"><a href="messagepage.html" id="msg" style="color: #1f97c7; text-decoration: none;"> ا تريد ان ترسل رساله لنا ؟</a></p>
+                       <p style="text-align:center;font-size:30px;"> <?php
+                                        if(isset($_SESSION['username'])): ?>
+                    <a href="contactus.php" id="msg" style="color: #1f97c7;text-decoration: none;"> ا تريد ان ترسل رساله لنا ؟</a></p>
+					<?php else: ?> <a href="contactus.html" id="msg" style="color: #1f97c7;text-decoration: none;"> ا تريد ان ترسل رساله لنا ؟</a></p> <?php endif; ?>
 
 			</div>
 			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4670.945540677754!2d54.64221254489483!3d24.28952750470833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e372ddb92299f%3A0xb696a269da76c9d3!2z2YXYr9ix2LPYqSDYp9mE2KvYsdmI2KfYqg!5e0!3m2!1sen!2seg!4v1555441075048!5m2!1sen!2seg" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen class=" wow fadeInDown" data-offset="300" data-wow-delay=".5s" data-wow-duration="3s" ></iframe>

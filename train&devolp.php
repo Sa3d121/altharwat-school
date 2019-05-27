@@ -37,23 +37,22 @@ session_start();
 		<div class="navbar " id="topnav" style="background-color:rgb(47, 48, 64);">
 			<div class="navbar-inner" style="background-color:rgb(47, 48, 64);">
 				<div class="container">
-									<a  href="index.html" style="float:left"><img alt="" src="img/logo.png"></a>
-				<p style="display:inline;color:white;position:absolute;top:50px;margin-left:10px;font-size:30px;font-weight:bold;s">T N S</p> 
+									<a  href="index.php" style="float:left"><img alt="" src="img/logo.png"></a>
 					<div class="navigation">
 						<nav>
 							
 							<ul class="nav pull-right">
 								<li>
-									<a href="userinterface.php">الصفحه الرئيسيه</a>
+									<a href="index.php">الصفحه الرئيسيه</a>
 								</li>
 								<li>
-									<a href="userinterface.php">عن مدرستنا</a>
+									<a href="index.php">عن مدرستنا</a>
 						
 								<li>
-									<a href="userinterface.php ">القسم الاعلامي</a>
+									<a href="index.php ">القسم الاعلامي</a>
 								</li>
 								<li>
-									<a href="userinterface.php">تواصل معنا</a>
+									<a href="index.php">تواصل معنا</a>
 								</li>
 							 <li class="nav-item dropdown">
                                     <?php

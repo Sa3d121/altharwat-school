@@ -74,7 +74,21 @@ if(!$mail->send()) {
     <link href="ico/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72">
     <link href="ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon-precomposed">
     <link href="icon/favicon.png" rel="shortcut icon" sizes="114x114">
-   
+    <style>
+        #messagebtn {
+            background-color: #1f97c7;
+            color: white;
+            padding: 10px 50px;
+            border: none;
+            opacity: 0.9;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-right: 27%;
+            margin-left: 27%;
+            width: auto;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -91,16 +105,16 @@ if(!$mail->send()) {
 
                             <ul class="nav pull-right">
                                 <li>
-                                    <a href="index.php">الصفحه الرئيسيه</a>
+                                    <a href="index.html">الصفحه الرئيسيه</a>
                                 </li>
                                 <li>
-                                    <a href="index.php">عن مدرستنا</a>
+                                    <a href="index.html">عن مدرستنا</a>
 
                                 <li>
-                                    <a href="index.php ">القسم الاعلامي</a>
+                                    <a href="index.html ">القسم الاعلامي</a>
                                 </li>
-                                <li class="current">
-                                    <a href="index.php">تواصل معنا</a>
+                                <li>
+                                    <a href="index.html">تواصل معنا</a>
                                 </li>
                                  <li class="nav-item dropdown">
                                     <?php
@@ -117,23 +131,26 @@ if(!$mail->send()) {
                                     </div>
 
 
-                              
+                                    <?php
+                                        else:
+										header("location: index.php");
+									
+														?>
 							
 									
                                     <?php
 			                         endif;
 			                         ?>
-									
                                 </li>
                                 </li>
                                 <li>
-                                    <a href="train&devolp.php">التطوير و التدريب</a>
+                                    <a href="train&devolp.html">التطوير و التدريب</a>
                                 </li>
                                 <li>
-                                    <a href="studentcorner.php">ركن الطلاب</a>
+                                    <a href="studentcorner.html">ركن الطلاب</a>
                                 </li>
                                 <li>
-                                    <a href="schedule.php">جدول الحصص</a>
+                                    <a href="schedule.html">جدول الحصص</a>
                                 </li>
 
                             </ul>
@@ -165,7 +182,6 @@ if(!$mail->send()) {
                             <i class="fa fa-envelope icon" style="float:right; padding:5px 0px"> </i><span style="float:right">&nbsp;&nbsp; البريد الالكتروني&nbsp;&nbsp;</span><span style="float:right"> :</span>
                             <input class="input-field" type="text" placeholder="ادخل بريدك الالكتروني" name="email" style="padding:20px;" required>
                         </div>
-                 
                         <div class="input-container">
                             <span style="float:right">&nbsp;&nbsp; عنوان الرساله &nbsp;&nbsp;</span><span style="float:right"> :</span>
                             <input class="input-field" type="text" placeholder="عنوان الرساله" name="subject" style="padding:20px;" required>
